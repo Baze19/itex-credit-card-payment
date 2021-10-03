@@ -1,0 +1,17 @@
+
+table, td, th {
+    border: 0.01rem solid black;
+  
+    
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    overflow-x: scroll;
+  }
+  
+  th,td {
+    height: 70px;
+    width: 50px;
+  }

@@ -1,0 +1,63 @@
+
+<nb-card class="page">
+    <nb-card-body class="container">
+        <form [formGroup]="cardForm">
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Card Number</label>
+                <input type="text" class="form-control" aria-describedby="emailHelp" formControlName="cardNumber"
+                    placeholder="enter valid number" required>
+
+                <div *ngIf="cardNumber?.touched && cardNumber?.invalid" class="alert alert-danger">
+                    <div *ngIf="cardNumber?.errors?.required">Card number is required is </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">card Holder</label>
+                <input type="text" class="form-control" formControlName="cardHolder" required
+                    placeholder="enter card holder's name">
+
+                <div *ngIf="cardHolder?.touched && cardHolder?.invalid" class="alert alert-danger">
+                    <div *ngIf="cardHolder?.errors?.required">Card holder details is required</div>
+
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Expiry Date</label>
+                <input type="date" class="form-control" id="exampleInputPassword1" formControlName="expiryDate" required>
+                <div *ngIf="expiryDate?.touched && amount?.invalid" class="alert alert-danger" >
+                    <div *ngIf="expiryDate?.errors?.required"> date  is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Amount</label>
+                <input type="number" class="form-control" id="" formControlName="amount" required placeholder="amount greater than 0">
+                <div *ngIf="amount?.touched && amount?.invalid" class="alert alert-danger" >
+                    <div *ngIf="amount?.errors?.required"> amount  is required</div>
+                    <div class="feedback" *ngIf="amount?.errors?.min">amount must be greater than 0</div>
+
+                </div>
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">security code</label>
+                <input type="text" class="form-control" id="exampleInputPassword1" formControlName="securityCode" placeholder="enter code"
+                    required>
+                    <div *ngIf="securityCode?.touched && securityCode?.invalid" class="alert alert-danger" >
+                        <div *ngIf="securityCode?.errors?.required"> code is required</div>
+                        <div *ngIf="securityCode?.errors?.minlength">code should be 3 numbers</div>
+    
+                    </div>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;" (click)="onSubmit()">Submit</button>
+
+
+        </form>
+    </nb-card-body>
+</nb-card>

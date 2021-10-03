@@ -1,0 +1,50 @@
+<nb-layout>
+
+  <nb-layout-header fixed>
+    <!-- Insert header here -->
+  </nb-layout-header>
+
+  <nb-layout-column>
+    <div class="right" *ngIf=" showPayment">
+
+      <div style="display: flex;justify-content: space-between;">
+        <h3>Credit Card Details</h3>
+        <button style="border-radius: 9px;"(click)="inputPage()">
+          <span><i class="bi bi-plus-lg"></i>
+          </span>Add New Payment</button>
+      </div>
+
+      <table *ngFor="let payment of  showPayment | async">
+        <tr>
+          <th>Card Number</th>
+          <th>Card Holder</th>
+          <th>Card Expiry Date</th>
+          <th>Amount</th>
+          <th>Security Code</th>
+
+        </tr>
+        <tr>
+          <td>{{ payment.cardNumber }}</td>
+          <td>{{ payment.cardHolder}}</td>
+          <td>{{ payment.expiryDate | date }}</td>
+          <td>{{ payment.amount}}</td>
+          <td>{{ payment.securityCode}}</td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+
+
+
+    <router-outlet></router-outlet>
+
+  </nb-layout-column>
+
+  <nb-layout-footer fixed>
+    <!-- Insert footer here -->
+  </nb-layout-footer>
+
+</nb-layout>
